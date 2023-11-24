@@ -4,6 +4,7 @@ import { ClaimService } from 'src/app/claim.service';
 import { DeepPartial } from 'chart.js/dist/types/utils';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserService } from 'src/app/_services/user.service';
 
 Chart.register(PieController);
 Chart.register(ArcElement);
@@ -20,10 +21,30 @@ export class DashboardComponent implements OnInit {
   data3:any =[];
   nbClaims: number | undefined;
   nbusers: number | undefined;
- 
-  constructor(private claimService: ClaimService,private http:HttpClient) { }
+  currentUser: any;
+  greeting: string = '';
+  constructor(private claimService: ClaimService,private http:HttpClient,public userService: UserService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {this.userService.getCurrentUser().subscribe(
+    (user) => {
+      this.currentUser = user;
+    },
+    (error) => {
+      // Handle errors, e.g., user not authenticated or other issues
+      console.error('Error:', error);
+    }
+  );
+    const now = new Date();
+    const currentHour = now.getHours();
+
+    // Set the greeting based on the time
+    if (currentHour >= 5 && currentHour < 12) {
+      this.greeting = 'Good Morning';
+    } else if (currentHour >= 12 && currentHour < 17) {
+      this.greeting = 'Good Afternoon';
+    } else {
+      this.greeting = 'Good Night';
+    }
     this.getPourcentage();
     this.getPourcentage1();
     this.http.get<number>('http://localhost:8085/claim/nbclaim').subscribe(
