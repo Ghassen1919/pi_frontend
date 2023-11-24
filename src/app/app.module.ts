@@ -38,7 +38,7 @@ import { Financialnews2Component } from './FrontOffice/financialnews2/financialn
 import { PortfolioComponent } from './FrontOffice/portfolio/portfolio.component';
 import { TradebodyComponent } from './FrontOffice/tradebody/tradebody.component';
 
-import { TradeheaderComponent } from './FrontOffice/tradeheader/tradeheader.component';
+
 import { OrderbuyComponent } from './FrontOffice/orderbuy/orderbuy.component';
 import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/transactionhistory.component';
 
@@ -74,7 +74,7 @@ import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/tr
     Financialnews2Component,
     PortfolioComponent,
     TradebodyComponent,
-    TradeheaderComponent,
+   
     OrderbuyComponent,
     TransactionhistoryComponent,
     
