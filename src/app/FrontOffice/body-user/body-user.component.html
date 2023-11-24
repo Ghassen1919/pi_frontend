@@ -1,366 +1,220 @@
-<!--Start Single Swiper Slide-->
-
 
 <br><br><br>
 
+
+
+
+
+<div class="tradingview-widget-container2" #tradingviewContainer></div>
+<div class="container1">
+
+<div class="bodyu" style="width: 500px;border-right: 1px solid #2C3E50;">
     
     
-    
+    <h2 style="font-weight: bold;margin-left: 350px;">Equities Heatmap</h2>
+    <div class="tradingview-widget-container" #tradingviewContainer style="margin-left: 80px;"></div>
+    <br>
+    <h2 style="font-weight: bold;margin-left: 300px;">Cryptocurrencies Heatmap</h2>
+    <div class="tradingview-widget-container1" #tradingviewContainer style="margin-left: 80px;"></div>
 
+                                
+                </div>  
 
-<!--End Single Swiper Slide-->
-<!-- /.stricky-header -->
-
-
-
-<!--Main Slider Start-->
-<section class="main-slider main-slider-style1">
-    <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-        "effect": "fade",
-        "pagination": {
-        "el": "#main-slider-pagination",
-        "type": "bullets",
-        "clickable": true
-        },
-        "navigation": {
-        "nextEl": "#main-slider__swiper-button-next",
-        "prevEl": "#main-slider__swiper-button-prev"
-        },
-        "autoplay": {
-        "delay": 5000
-        }}'>
-        <div class="swiper-wrapper">
-           
-
-            <!--Start Single Swiper Slide-->
-            <div class="swiper-slide">
-                <div class="image-layer" style="background-image: url(assets/front/images/backgrounds/trading-1044075.jpg);">
-                </div>
                 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="main-slider-content">
-                                <div class="main-slider-content__inner">
-                                    <div class="big-title">
-                                        <h2>{{ greeting }},<br> {{currentUser.userName}}</h2>
-                                    </div>
-                                    <div class="text">
-                                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Swiper Slide-->
-
-            <!--Start Single Swiper Slide-->
-            <div class="swiper-slide">
-                <div class="image-layer" style="background-image: url(assets/front/images/backgrounds/tranding-a.jpeg);">
-                </div>
                 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="main-slider-content">
-                                <div class="main-slider-content__inner">
-                                    <div class="big-title">
-                                        <h2>{{ greeting }},<br> {{currentUser.userName}}</h2>
-                                    </div>
-                                    <div class="text">
-                                        
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Swiper Slide-->
-
-            <!--Start Single Swiper Slide-->
-           
-            <!--End Single Swiper Slide-->
 
 
-        </div>
 
-        <!-- If we need navigation buttons -->
-        <div class="main-slider__nav">
-            <div class="swiper-button-prev" id="main-slider__swiper-button-next">
-                <i class="icon-chevron left"></i>
-            </div>
-            <div class="swiper-button-next" id="main-slider__swiper-button-prev">
-                <i class="icon-chevron right"></i>
-            </div>
-        </div>
 
-    </div>
-</section>
-<!--Main Slider End-->
 
-<!--Start Features Style1 Area-->
+<div class="sidebar">
+    
+<p style="font-weight: bold;margin-left: 150px;">TOP Commodities</p>
+    
+    <div  class="table-responsive">
+        <table  class=" table-bordered" id="Table"  width="100%" cellspacing="0" >
+    <thead>
+    <tr>
+    
+    <th style="background-color: #2C3E50;color: aliceblue;">Nom</th>
+    <th style="background-color: #2C3E50;color: aliceblue;">Cours</th>
+    
+    <th style="background-color: #2C3E50;color: aliceblue;">Variation</th>
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of tableData">
+    
+        <td>{{ row.column1 }}</td>
+        <td>{{ row.column8 }}</td>
+        <td style="color: {{ row.column3.includes('+') ? 'green' : (row.column3.includes('-') ? 'red' : 'black') }}">{{ row.column3 }}</td>
+    
+    </tbody>
+    </table>
+    
+    <a routerLink="/user/news">view more commodities</a>
+</div>
+<br>
+<p style="font-weight: bold;margin-left: 150px;">TOP Cryptocurrencies</p>
+    
+    <div  class="table-responsive">
+        <table  class=" table-bordered" id="Table"  width="100%" cellspacing="0" >
+    <thead>
+    <tr>
+    
+    <th style="background-color: #2C3E50;color: aliceblue;">Nom</th>
+    <th style="background-color: #2C3E50;color: aliceblue;">Cours</th>
+    
+    <th style="background-color: #2C3E50;color: aliceblue;">Variation</th>
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of tableData1">
+    
+        <td>{{ row.column1 }}</td>
+        <td>{{ row.column8 }}</td>
+        <td style="color: {{ row.column3.includes('+') ? 'green' : (row.column3.includes('-') ? 'red' : 'black') }}">{{ row.column3 }}</td>
+    
+    </tbody>
+    </table>
+    
+    <a routerLink="/user/newsCrypto">view more Cryptocurrencies</a>
+</div>
+<br>
+<p style="font-weight: bold;margin-left: 150px;">TOP Equities</p>
+    
+    <div  class="table-responsive">
+        <table  class=" table-bordered" id="Table"  width="100%" cellspacing="0" >
+    <thead>
+    <tr>
+    
+    <th style="background-color: #2C3E50;color: aliceblue;">Nom</th>
+    <th style="background-color: #2C3E50;color: aliceblue;">Cours</th>
+    
+    <th style="background-color: #2C3E50;color: aliceblue;">Variation 1Jan</th>
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of tableData2">
+    
+        <td>{{ row.column1 }}</td>
+        <td>{{ row.column8 }}</td>
+        <td style="color: {{ row.column4.includes('+') ? 'green' : (row.column4.includes('-') ? 'red' : 'black') }}">{{ row.column4 }}</td>
+    
+    </tbody>
+    </table>
+    
+    <a routerLink="/user/newsAction">view more equities</a>
+    
 
-<!--End Features Style1 Area-->
+</div>
+<br>
+  <div class="tradingview-widget-container" style="height: 300px; width: 350px; margin-left: 20px;">
+    <div id="tradingview_c976b" style="height: calc(100% - 32px); width: 100%"></div>
+    <div class="tradingview-widget-copyright"></div>
+  </div>
+  <div style="margin-left: 20px;" >
+    <select  (change)="onSymbolChange($event)">
+      <option value="XAUUSD">OR</option>
+      <option value="USOIL">PÉTROLE WTI	</option>
+      <option value="BTCUSD">BITCOIN</option>
+      <option value="ETHUSD">ETHEREUM</option>
+      <option value="NASDAQ:AAPL">Apple</option>
+      <option value="NASDAQ:MSFT">Microsoft Corporation</option>
+      <option value="TNDUSD">indice TND/ USD</option>
+     
+      
+      <!-- Add more options for other equities as needed -->
+    </select>
+  </div>
+</div>
 
-<!--Start Service Style1 Area-->
-
-<!--End Service Style1 Area-->
-
-<!--Start Wealth Secure Area-->
-<section class="wealth-secure-area">
+</div>
+<br>
+<section class="features-style1-area">
     <div class="container">
         <div class="sec-title text-center">
-            <h2>Grow Your Wealth Secure</h2>
+            <h2>Investing is
+                Even better now</h2>
             <div class="sub-title">
-                <p>Don’t just make a deposit, make an investment today.</p>
+                <p>Committed to helping our customers succeed.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="owl-carousel owl-theme thm-owl__carousel wealth-secure-carousel-2 owl-nav-style-one"
-                    data-owl-options='{
-                    "loop": true,
-                    "autoplay": true,
-                    "margin": 30,
-                    "nav": false,
-                    "dots": true,
-                    "smartSpeed": 500,
-                    "autoplayTimeout": 10000,
-                    "navText": ["<span class=\"left icon-right-arrow\"></span>","<span class=\"right icon-right-arrow\"></span>"],
-                    "responsive": {
-                            "0": {
-                                "items": 1
-                            },
-                            "768": {
-                                "items": 2
-                            },
-                            "992": {
-                                "items": 3
-                            },
-                            "1200": {
-                                "items": 4
-                            }
-                        }
-                    }'>
-
-
-                    <!--Start Single Wealth Secure Box-->
-                    <div class="single-wealth-secure-box">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-1.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Bonds</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
+        <div class="features-style1-content">
+            <ul class="clearfix">
+                <!--Start Single Features Style1 Box-->
+                <li>
+                    <div class="single-features-style1-box">
+                        <div class="shape-left">
+                            <img src="assets/front/images/shapes/shape-1.png" alt="">
+                        </div>
+                        <div class="shape-bottom">
+                            <img src="assets/front/images/shapes/shape-2.png" alt="">
+                        </div>
+                        <div class="counting-box">
+                            <div class="counting-box-bg"
+                                style="background-image: url(assets/front/images/shapes/counting-box-bg.png);"></div>
+                            <h3>01</h3>
                         </div>
                         <div class="text-box">
-                            <p>Bonds are essentially loans made by investors to corporations or governments.
-                                </p>
+                            <h4>Trade</h4>
+                            <h3>Trade any of 100 assets and stocks. Use technical analysis and trade the news</h3>
+                            
+                           
                         </div>
                     </div>
-                    <!--End Single Wealth Secure Box-->
-                    <!--Start Single Wealth Secure Box-->
-                    <div class="single-wealth-secure-box style2">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-2.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Real Estate</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
+                </li>
+                <!--End Single Features Style1 Box-->
+                <!--Start Single Features Style1 Box-->
+                <li>
+                    <div class="single-features-style1-box">
+                        <div class="shape-left">
+                            <img src="assets/front/images/shapes/shape-1.png" alt="">
+                        </div>
+                        <div class="shape-bottom">
+                            <img src="assets/front/images/shapes/shape-2.png" alt="">
+                        </div>
+                        <div class="counting-box">
+                            <div class="counting-box-bg"
+                                style="background-image: url(assets/front/images/shapes/counting-box-bg.png);"></div>
+                            <h3>02</h3>
                         </div>
                         <div class="text-box">
-                            <p> Investing in real estate can potentially provide both rental income and long-term appreciation. </p>
+                            <h4>Exclusive training </h4>
+                            <h3>Successful strategies </h3>
+                            
+                            
                         </div>
                     </div>
-                    <!--End Single Wealth Secure Box-->
-                    <!--Start Single Wealth Secure Box-->
-                    <div class="single-wealth-secure-box style3">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-3.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Stocks</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
+                </li>
+                <!--End Single Features Style1 Box-->
+                <!--Start Single Features Style1 Box-->
+                <li>
+                    <div class="single-features-style1-box">
+                        <div class="shape-left">
+                            <img src="assets/front/images/shapes/shape-1.png" alt="">
+                        </div>
+                        <div class="shape-bottom">
+                            <img src="assets/front/images/shapes/shape-2.png" alt="">
+                        </div>
+                        <div class="counting-box">
+                            <div class="counting-box-bg"
+                                style="background-image: url(assets/front/images/shapes/counting-box-bg.png);"></div>
+                            <h3>03</h3>
                         </div>
                         <div class="text-box">
-                            <p> Stocks represent ownership in a company and can potentially provide 
-                                strong returns over the long-term.</p>
+                            <h4>Trading in TND</h4>
+                            <h3>Deposit and withdraw in TND</h3>
+                            
+                            
                         </div>
                     </div>
-                    <!--End Single Wealth Secure Box-->
-                     <!--Start Single Wealth Secure Box-->
-                     <div class="single-wealth-secure-box">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-1.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Bonds</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-box">
-                            <p>Bonds are essentially loans made by investors to corporations or governments.
-                                </p>
-                        </div>
-                    </div>
-                    <!--End Single Wealth Secure Box-->
-                    <!--Start Single Wealth Secure Box-->
-                    <div class="single-wealth-secure-box style2">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-2.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Real Estate</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-box">
-                            <p> Investing in real estate can potentially provide both rental income and long-term appreciation. </p>
-                        </div>
-                    </div>
-                    <!--End Single Wealth Secure Box-->
-                    <!--Start Single Wealth Secure Box-->
-                    <div class="single-wealth-secure-box style3">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-3.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Stocks</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-box">
-                            <p> Stocks represent ownership in a company and can potentially provide 
-                                strong returns over the long-term.</p>
-                        </div>
-                    </div>
-                    <!--End Single Wealth Secure Box-->
-                      <!--Start Single Wealth Secure Box-->
-                      <div class="single-wealth-secure-box">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-1.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Bonds</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-box">
-                            <p>Bonds are essentially loans made by investors to corporations or governments.
-                                </p>
-                        </div>
-                    </div>
-                    <!--End Single Wealth Secure Box-->
-                    <!--Start Single Wealth Secure Box-->
-                    <div class="single-wealth-secure-box style2">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-2.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Real Estate</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-box">
-                            <p> Investing in real estate can potentially provide both rental income and long-term appreciation. </p>
-                        </div>
-                    </div>
-                    <!--End Single Wealth Secure Box-->
-                    <!--Start Single Wealth Secure Box-->
-                    <div class="single-wealth-secure-box style3">
-                        <div class="img-box">
-                            <div class="img-box-inner">
-                                <img src="assets/front/images/resources/wealth-secure-3.jpg" alt="">
-                            </div>
-                            <div class="inner-title">
-                                <div class="arrow-top"></div>
-                                <div class="arrow-bottom"></div>
-                                <h3><a href="#">Stocks</a></h3>
-                                <div class="right-arrow-btn">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-box">
-                            <p> Stocks represent ownership in a company and can potentially provide 
-                                strong returns over the long-term.</p>
-                        </div>
-                    </div>
-                    <!--End Single Wealth Secure Box-->
-
-                </div>
-            </div>
+                </li>
+                <!--End Single Features Style1 Box-->
+            </ul>
         </div>
     </div>
-    
-<!--End Wealth Secure Area-->
-
-
-
-                        
-                          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </section>

@@ -21,20 +21,31 @@
                                         <a routerLink="/user">Home</a>
                                         
                                     </li>
-                                    <li >
-                                        <a routerLink="/user">Financial News</a>
-                                        
+                                    <li class="dropdown">
+                                        <a >Financial News</a>
+                                        <ul>
+                                            <li><a routerLink="/user/news">Commodities</a></li>
+                                            <li><a routerLink="/user/newsCrypto">Cryptocurrencies</a></li>
+                                            <li><a routerLink="/user/newsAction">Equities
+                                            </a></li>
+                                            
+                                        </ul>
                                     </li>
                                     <li >
-                                        <a routerLink="/user">Formation</a>
-                                        
-                                    </li>
-                                    <li >
-                                        <a routerLink="/user">Simulator</a>
+                                        <a routerLink="/user">Training</a>
                                         
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Claims</a>
+                                        <a >Trading</a>
+                                        <ul>
+                                            <li><a routerLink="">Potfolio</a></li>
+                                            <li><a routerLink="/trade" target="_blank">Trade now</a></li>
+                                            
+                                            
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a >Claims</a>
                                         <ul>
                                             <li><a routerLink="/user/claims">Consulte my claims</a></li>
                                             <li><a routerLink="/user/addclaim">Add claim</a></li>

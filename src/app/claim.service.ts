@@ -8,12 +8,42 @@ import { Observable } from 'rxjs';
 export class ClaimService {
   private apiUrl = 'http://localhost:8085/claim/add';
   private apiUrl1 = 'http://localhost:8085/claim';
+  private baseUrl='http://localhost:8085/api';
   constructor(private http:HttpClient) { }
   getClaims () : Observable<string[]>{
     return this.http.get<string[]>("http://localhost:8085/claim/afficher")
   }
   
-  
+  getTableData(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table-data`);
+  }
+  getTableData1(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table1-data`);
+  }
+  getTableData2(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table2-data`);
+  }
+  getTableData3(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table3-data`);
+  }
+  getTableData4(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table4-data`);
+  }
+  getTableData5(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table5-data`);
+  }
+  getTableData6(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table6-data`);
+  }
+  getTableData7(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table7-data`);
+  }
+  getTableData8(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table8-data`);
+  }
+  getTableData9(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table9-data`);
+  }
     print(): Observable<any> {
       return this.http.get("http://localhost:8085/claim/export/pdf", { responseType: 'blob' });
     }

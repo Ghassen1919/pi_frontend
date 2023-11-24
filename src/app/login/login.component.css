@@ -48,13 +48,13 @@ body{
 }
 
 .top{
-  &:before{transform:rotate(45deg);background:#2C3E50;}
-  &:after{transform:rotate(135deg);background:#5D6D7E;}
+  &:before{transform:rotate(45deg);background:grey;}
+  &:after{transform:rotate(135deg);background:#2C3E50;}
 }
 
 .bottom{
-  &:before{transform:rotate(-45deg);background:#60b8d4;}
-  &:after{transform:rotate(-135deg);background:#3745b5;}
+  &:before{transform:rotate(-45deg);background:grey;}
+  &:after{transform:rotate(-135deg);background:#2C3E50;}
 }
 
 .center{

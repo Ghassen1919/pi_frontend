@@ -8,6 +8,7 @@ import { ClaimService } from 'src/app/claim.service';
 })
 export class ClaimsuserComponent implements OnInit {
   claimsList :any =[];
+  
   constructor(private claimService: ClaimService) { }
 
   ngOnInit(): void {this.claimService.getListOfclaims().subscribe(
@@ -19,6 +20,9 @@ export class ClaimsuserComponent implements OnInit {
       console.error('Error fetching list of integers:', error);
     }
   );
-  }
+  
+  
+
+}
 
 }

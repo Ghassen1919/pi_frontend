@@ -32,6 +32,16 @@ import { UpdateuserComponent } from './FrontOffice/updateuser/updateuser.compone
 import { StickynavComponent } from './FrontOffice/stickynav/stickynav.component';
 import { LoginadComponent } from './loginad/loginad.component';
 import { ClaimsuserComponent } from './FrontOffice/claimsuser/claimsuser.component';
+import { FinancialnewsComponent } from './FrontOffice/financialnews/financialnews.component';
+import { Financialnews1Component } from './FrontOffice/financialnews1/financialnews1.component';
+import { Financialnews2Component } from './FrontOffice/financialnews2/financialnews2.component';
+import { PortfolioComponent } from './FrontOffice/portfolio/portfolio.component';
+import { TradebodyComponent } from './FrontOffice/tradebody/tradebody.component';
+
+import { TradeheaderComponent } from './FrontOffice/tradeheader/tradeheader.component';
+import { OrderbuyComponent } from './FrontOffice/orderbuy/orderbuy.component';
+import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/transactionhistory.component';
+
 
 
 
@@ -59,6 +69,15 @@ import { ClaimsuserComponent } from './FrontOffice/claimsuser/claimsuser.compone
     StickynavComponent,
     LoginadComponent,
     ClaimsuserComponent,
+    FinancialnewsComponent,
+    Financialnews1Component,
+    Financialnews2Component,
+    PortfolioComponent,
+    TradebodyComponent,
+    TradeheaderComponent,
+    OrderbuyComponent,
+    TransactionhistoryComponent,
+    
     
     
     
