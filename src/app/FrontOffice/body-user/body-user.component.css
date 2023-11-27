@@ -2,14 +2,14 @@
     display: flex;
   }
   .bodyu{
-    flex: 75%;
+    flex: 60%;
   }
   .sidebar{
-    flex: 25%;
+    flex: 40%;
   }
   .table-bordered {
     border-collapse: collapse;
-    margin: 25px 0;
+    margin-left: 5%;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;

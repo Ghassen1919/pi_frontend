@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
 import { UserService } from 'src/app/_services/user.service';
 import { ClaimService } from 'src/app/claim.service';
+
 
 @Component({
   selector: 'app-body-user',
@@ -18,9 +20,11 @@ export class BodyUserComponent implements OnInit, AfterViewInit {
   tableData2 :any;
   private tradingViewWidget: any;
   private defaultSymbol = "XAUUSD";
+  amountInUSD!: number ;
+  amountInTND!: number ;
   constructor(private userAuthService: UserAuthService,
     private router: Router,
-    public userService: UserService,private http: HttpClient,private claimservice: ClaimService,private renderer: Renderer2) { }
+    public userService: UserService,private http: HttpClient,private claimservice: ClaimService,private renderer: Renderer2 ) { }
 
   ngOnInit(): void { this.claimservice.reloadOnce();
     this.userService.getCurrentUser().subscribe(
@@ -32,17 +36,7 @@ export class BodyUserComponent implements OnInit, AfterViewInit {
       console.error('Error:', error);
     }
   );
-    const now = new Date();
-    const currentHour = now.getHours();
-
-    // Set the greeting based on the time
-    if (currentHour >= 5 && currentHour < 12) {
-      this.greeting = 'Good Morning';
-    } else if (currentHour >= 12 && currentHour < 17) {
-      this.greeting = 'Good Afternoon';
-    } else {
-      this.greeting = 'Good Night';
-    }
+   
     this.claimservice.getTableData4().subscribe(data => {
       this.tableData = data;
     });
@@ -55,11 +49,16 @@ export class BodyUserComponent implements OnInit, AfterViewInit {
     this.loadTradingViewScript();
     this.loadTradingViewScript1();
     this.loadTradingViewScript2();
+    
+
+    // Subscribe to updates from the WebSocket
+    
   }
   ngAfterViewInit(): void {
     // Load with default symbol
     this.loadTradingViewWidget(this.defaultSymbol);
   }
+  
   public logout() {
     this.userAuthService.clear();
     this.router.navigate(['']);
@@ -81,7 +80,7 @@ export class BodyUserComponent implements OnInit, AfterViewInit {
         "symbol": symbol,
         "interval": "D",
         "timezone": "Etc/UTC",
-        "theme": "dark",
+        "theme": "light",
         "style": "1",
         "locale": "fr",
         "enable_publishing": true,
@@ -128,7 +127,7 @@ export class BodyUserComponent implements OnInit, AfterViewInit {
         "isDataSetEnabled": false,
         "isZoomEnabled": true,
         "hasSymbolTooltip": true,
-        "width": "800",
+        "width": "700",
         "height": "500"
       }
     `;
@@ -155,7 +154,7 @@ export class BodyUserComponent implements OnInit, AfterViewInit {
         "isDataSetEnabled": false,
         "isZoomEnabled": true,
         "hasSymbolTooltip": true,
-        "width": "800",
+        "width": "700",
         "height": "500"
       }
     `;
@@ -209,5 +208,11 @@ export class BodyUserComponent implements OnInit, AfterViewInit {
     const container = document.querySelector('.tradingview-widget-container2');
     this.renderer.appendChild(container, script);
   }
-
+  convertUSDToTND() {
+    this.claimservice
+      .convertUSDToTND(this.amountInUSD)
+      .subscribe((result) => {
+        this.amountInTND = result;
+      });
+  }
 }

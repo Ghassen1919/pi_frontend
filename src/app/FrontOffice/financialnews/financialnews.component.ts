@@ -1,22 +1,27 @@
-import { AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { ClaimService } from 'src/app/claim.service';
-
+import { WebsocketService } from 'src/app/websocket.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-financialnews',
   templateUrl: './financialnews.component.html',
   styleUrls: ['./financialnews.component.css']
 })
 export class FinancialnewsComponent implements OnInit, AfterViewInit {
-  tableData: any;
+tableData: any;
+ 
   tableData1: any;
   tableData2: any;
   private tradingViewWidget: any;
   private defaultSymbol = "XAUUSD"; 
-  constructor(private claimService: ClaimService,private renderer: Renderer2) { }
+  private subscription!: Subscription;
+  messageToSend: string = '';
+  constructor(private claimService: ClaimService,private renderer: Renderer2,private webSocketService :WebsocketService) { }
 
   ngOnInit(): void {this.claimService.getTableData().subscribe(data => {
     this.tableData = data;
   });
+  
   this.claimService.getTableData1().subscribe(data => {
     this.tableData1 = data;
   });
@@ -29,7 +34,7 @@ export class FinancialnewsComponent implements OnInit, AfterViewInit {
     // Load with default symbol
     this.loadTradingViewWidget(this.defaultSymbol);
   }
-
+  
   loadTradingViewWidget(symbol: string): void {
     const script = document.createElement('script');
     script.type = 'text/javascript';
