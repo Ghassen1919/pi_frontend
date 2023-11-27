@@ -9,6 +9,7 @@ export class ClaimService {
   private apiUrl = 'http://localhost:8085/claim/add';
   private apiUrl1 = 'http://localhost:8085/claim';
   private baseUrl='http://localhost:8085/api';
+ 
   constructor(private http:HttpClient) { }
   getClaims () : Observable<string[]>{
     return this.http.get<string[]>("http://localhost:8085/claim/afficher")
@@ -76,6 +77,12 @@ export class ClaimService {
       const url = `${this.apiUrl1}/claimperuser`;
       return this.http.get<string[]>(url);
     }
+
+    convertUSDToTND(amount: number): Observable<number> {
+      const url = `${this.baseUrl}/convertUSDToTND?amount=${amount}`;
+      return this.http.get<number>(url);
+    }
+
       }
 
 

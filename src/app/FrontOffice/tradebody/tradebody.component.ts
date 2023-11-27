@@ -14,6 +14,7 @@ export class TradebodyComponent implements OnInit, AfterViewInit  {
   currentUser: any;
   private tradingViewWidget: any;
   private defaultSymbol = "XAUUSD";
+ 
   constructor(private claimservice: ClaimService,public userService: UserService) { }
 
   ngOnInit(): void { this.claimservice.getTableData4().subscribe(data => {
@@ -34,11 +35,14 @@ export class TradebodyComponent implements OnInit, AfterViewInit  {
       console.error('Error:', error);
     }
   );
+  
   }
   ngAfterViewInit(): void {
+     
     // Load with default symbol
     this.loadTradingViewWidget(this.defaultSymbol);
   }
+  
   loadTradingViewWidget(symbol: string): void {
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -103,4 +107,5 @@ export class TradebodyComponent implements OnInit, AfterViewInit  {
         return 'XAUUSD';
     }
 }
+
 }

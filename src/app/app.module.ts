@@ -41,6 +41,8 @@ import { TradebodyComponent } from './FrontOffice/tradebody/tradebody.component'
 
 import { OrderbuyComponent } from './FrontOffice/orderbuy/orderbuy.component';
 import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/transactionhistory.component';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { WebsocketService } from './websocket.service';
 
 
 
@@ -88,7 +90,8 @@ import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/tr
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    
    
   ],
   providers: [AuthGuard,
@@ -97,7 +100,7 @@ import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/tr
       useClass:AuthInterceptor,
       multi:true
     },
-    UserService,ClaimService],
+    UserService,ClaimService,WebsocketService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
