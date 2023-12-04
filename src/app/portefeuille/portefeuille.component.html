@@ -1,0 +1,16 @@
+
+
+<p>{{currentUser.portefeuille.idPortefeuille}}</p>
+
+
+<div *ngIf="portefeuille">
+  <h2>User Portefeuille</h2>
+  <p>Solde: {{ portefeuille.solde }}</p>
+
+  <h3>Instruments:</h3>
+  <ul>
+    <li *ngFor="let instrument of portefeuille.instrument">
+      {{ instrument.name }} ({{ instrument.symbole }}) - Quantity: {{ instrument.quantite }}
+    </li>
+  </ul>
+</div>

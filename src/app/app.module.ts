@@ -44,6 +44,10 @@ import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/tr
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { WebsocketService } from './websocket.service';
 
+import {PortefeuilleComponent} from './portefeuille/Portefeuille.component';
+import { SellComponent } from './sell/sell.component';
+
+
 
 
 
@@ -76,14 +80,18 @@ import { WebsocketService } from './websocket.service';
     Financialnews2Component,
     PortfolioComponent,
     TradebodyComponent,
-   
+
     OrderbuyComponent,
     TransactionhistoryComponent,
-    
-    
-    
-    
-    
+
+    PortefeuilleComponent,
+      SellComponent,
+
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -91,8 +99,8 @@ import { WebsocketService } from './websocket.service';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    
-   
+
+
   ],
   providers: [AuthGuard,
     {

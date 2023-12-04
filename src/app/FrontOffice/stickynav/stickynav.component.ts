@@ -15,6 +15,7 @@ export class StickynavComponent implements OnInit {
   ngOnInit(): void {this.userService.getCurrentUser().subscribe(
     (user) => {
       this.currentUser = user;
+      console.log(user)
     },
     (error) => {
       // Handle errors, e.g., user not authenticated or other issues
