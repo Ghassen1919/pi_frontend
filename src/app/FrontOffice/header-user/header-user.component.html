@@ -9,7 +9,7 @@
 
                     <div class="main-menu-style1-left">
                         <div class="logo-box-style1">
-                            
+
                             <img src="assets/front/images/default.png" style="height: 140px;width: 250px;" alt="Awesome Logo" title="">
                         </div>
 
@@ -21,7 +21,7 @@
                             <ul class="main-menu__list" style="margin-right: 100px;">
                                 <li >
                                     <a routerLink="/user">Home</a>
-                                    
+
                                 </li>
                                 <li class="dropdown">
                                     <a >Financial News</a>
@@ -30,20 +30,20 @@
                                         <li><a routerLink="/user/newsCrypto">Cryptocurrencies</a></li>
                                         <li><a routerLink="/user/newsAction">Equities
                                         </a></li>
-                                        
+
                                     </ul>
                                 </li>
                                 <li >
                                     <a routerLink="/user">Training</a>
-                                    
+
                                 </li>
                                 <li class="dropdown">
                                     <a >Trading</a>
                                     <ul>
-                                        <li><a routerLink="/user/trading">Potfolio</a></li>
+                                        <li><a routerLink="/user/portfolio">Portfolio</a></li>
                                         <li><a routerLink="/trade" target="_blank">Trade now</a></li>
-                                        
-                                        
+
+
                                     </ul>
                                 </li>
                                 <li class="dropdown">
@@ -51,20 +51,20 @@
                                     <ul>
                                         <li><a routerLink="/user/claims">Consulte my claims</a></li>
                                         <li><a routerLink="/user/addclaim">Add claim</a></li>
-                                        
+
                                     </ul>
                                 </li>
-                                
-                           
-                
+
+
+
                                         <li class="dropdown">
-                                            
+
                                             <img alt="Profile Picture" class="circular-image" src="data:image/jpeg;base64,{{currentUser.userPhoto}}" style="width: 50px;height: 50px;">
                                            <span style="font-weight: bold;">     {{currentUser.userName}}</span>
-                                        
+
                                             <ul>
-                                                
-                                                
+
+
                                                 <li>
                                                     <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
                                                     <label style="color: grey;" for="fileInput" class="file-label">Change photo</label>
@@ -72,25 +72,25 @@
                                                   <li>
                                                     <a (click)="uploadPhoto()" style="cursor: pointer;" *ngIf="fileInputClicked">Confirm change photo</a>
                                                   </li>
-                                                
+
                                                 <li><a routerLink="/user/updatepassword">Account settings</a></li>
                                                 <li><a style="cursor: pointer;" (click)="logout()">Logout</a></li>
-                                               
+
                                             </ul>
-                                        </li>      
-                               
-                               
-                                
-                                
-                                
-                                    
-               
+                                        </li>
+
+
+
+
+
+
+
             </ul>
-                            
+
                         </div>
                     </div>
 
-                    
+
 
                 </div>
             </div>
@@ -117,16 +117,16 @@
     <div class="main-header-style1-bottom">
         <div class="auto-container">
             <div class="outer-box">
-                
+
                 <div class="slogan-box">
-                  
+
                 </div>
             </div>
         </div>
     </div>
     <!--Start Main Header Style1 Bottom-->
-    
+
     <!--End Main Header Style1 Bottom-->
-    
+
 
 </header>

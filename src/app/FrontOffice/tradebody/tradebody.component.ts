@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import { ClaimService } from 'src/app/claim.service';
+import {PortefeuilleService} from "../../portefeuille.service";
 
 @Component({
   selector: 'app-tradebody',
@@ -12,10 +13,11 @@ export class TradebodyComponent implements OnInit, AfterViewInit  {
   tableData1 :any;
   tableData2 :any;
   currentUser: any;
+  portefeuille: any;
   private tradingViewWidget: any;
   private defaultSymbol = "XAUUSD";
- 
-  constructor(private claimservice: ClaimService,public userService: UserService) { }
+
+  constructor(private claimservice: ClaimService,public userService: UserService, private portefeuilleService:PortefeuilleService) { }
 
   ngOnInit(): void { this.claimservice.getTableData4().subscribe(data => {
     this.tableData = data;
@@ -26,23 +28,39 @@ export class TradebodyComponent implements OnInit, AfterViewInit  {
   this.claimservice.getTableData6().subscribe(data => {
     this.tableData2 = data;
   });
-  this.userService.getCurrentUser().subscribe(
-    (user) => {
-      this.currentUser = user;
-    },
-    (error) => {
-      // Handle errors, e.g., user not authenticated or other issues
-      console.error('Error:', error);
-    }
-  );
-  
+    this.userService.getCurrentUser().subscribe(
+      (user) => {
+        this.currentUser = user;
+
+        if (this.currentUser && this.currentUser.portefeuille) {
+          const userId = this.currentUser.portefeuille.idPortefeuille;
+
+          this.portefeuilleService.getPortefeuille(userId).subscribe(
+            (data) => {
+              this.portefeuille = data;
+            },
+            (error) => {
+              // Handle errors related to fetching the portefeuille data
+              console.error('Error fetching portefeuille data:', error);
+            }
+          );
+        } else {
+          console.error('User or portefeuille data not available.');
+        }
+      },
+      (error) => {
+        // Handle errors, e.g., user not authenticated or other issues
+        console.error('Error fetching user data:', error);
+      }
+    );
+
   }
   ngAfterViewInit(): void {
-     
+
     // Load with default symbol
     this.loadTradingViewWidget(this.defaultSymbol);
   }
-  
+
   loadTradingViewWidget(symbol: string): void {
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -66,7 +84,7 @@ export class TradebodyComponent implements OnInit, AfterViewInit  {
         "enable_publishing": true,
         "allow_symbol_change": true,
         "container_id": "tradingview_c976b"
-       
+
       });
     } else {
       // If the widget exists, update the symbol
@@ -101,7 +119,7 @@ export class TradebodyComponent implements OnInit, AfterViewInit  {
         return 'NASDAQ:AAPL';
         case 'microsoft corporation':
         return 'NASDAQ:MSFT';
-        
+
       // Add more cases for other symbols as needed
       default:
         return 'XAUUSD';

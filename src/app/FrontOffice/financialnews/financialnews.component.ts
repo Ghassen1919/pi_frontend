@@ -9,32 +9,34 @@ import { Subscription } from 'rxjs';
 })
 export class FinancialnewsComponent implements OnInit, AfterViewInit {
 tableData: any;
- 
+
   tableData1: any;
   tableData2: any;
   private tradingViewWidget: any;
-  private defaultSymbol = "XAUUSD"; 
+  private defaultSymbol = "XAUUSD";
   private subscription!: Subscription;
   messageToSend: string = '';
   constructor(private claimService: ClaimService,private renderer: Renderer2,private webSocketService :WebsocketService) { }
 
-  ngOnInit(): void {this.claimService.getTableData().subscribe(data => {
+  ngOnInit(): void
+  {
+    this.claimService.getTableData().subscribe(data => {
     this.tableData = data;
   });
-  
+
   this.claimService.getTableData1().subscribe(data => {
     this.tableData1 = data;
   });
   this.claimService.getTableData7().subscribe(data => {
     this.tableData2 = data;
   });
-  
+
   }
   ngAfterViewInit(): void {
     // Load with default symbol
     this.loadTradingViewWidget(this.defaultSymbol);
   }
-  
+
   loadTradingViewWidget(symbol: string): void {
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -77,5 +79,5 @@ tableData: any;
     // Load a new TradingView widget with the selected symbol
     this.loadTradingViewWidget(selectedSymbol);
   }
- 
+
 }

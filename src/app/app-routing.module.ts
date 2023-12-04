@@ -22,6 +22,8 @@ import { PortfolioComponent } from './FrontOffice/portfolio/portfolio.component'
 import { TradebodyComponent } from './FrontOffice/tradebody/tradebody.component';
 import { OrderbuyComponent } from './FrontOffice/orderbuy/orderbuy.component';
 import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/transactionhistory.component';
+import {PortefeuilleComponent} from './portefeuille/Portefeuille.component';
+import {SellComponent} from "./sell/sell.component";
 
 
 
@@ -59,11 +61,11 @@ const routes: Routes = [
       },{
         path:'updatepassword',component:UpdateuserComponent, canActivate:[AuthGuard], data:{roles:['Admin']}
       }
-      
+
     ]
 
   },
-  
+
 
    { path:'user',
    component: AllTemplateUserComponent, canActivate:[AuthGuard], data:{roles:['User']},
@@ -84,24 +86,30 @@ const routes: Routes = [
       },{
         path:'newsAction',component:Financialnews2Component, canActivate:[AuthGuard], data:{roles:['User']}
       }
-      
+     ,{
+       path:'portfolio',component:PortefeuilleComponent, canActivate:[AuthGuard], data:{roles:['User']}
+     }
+
     ]
   },{
     path:'trade',component:TradebodyComponent, canActivate:[AuthGuard], data:{roles:['User']},
     children:[
       {
-        
+
         path:'',component:PortfolioComponent, canActivate:[AuthGuard], data:{roles:['User']}
       },{
-        
+
         path:'orderbuy',component:OrderbuyComponent, canActivate:[AuthGuard], data:{roles:['User']}
       },{
-        
+
         path:'history',component:TransactionhistoryComponent, canActivate:[AuthGuard], data:{roles:['User']}
       }
-    
-    
-    
+      ,{
+
+        path:'sell',component:SellComponent, canActivate:[AuthGuard],  data:{roles:['User']}
+      }
+
+
     ]
   }
 ];
