@@ -46,6 +46,7 @@ import { WebsocketService } from './websocket.service';
 
 import {PortefeuilleComponent} from './portefeuille/Portefeuille.component';
 import { SellComponent } from './sell/sell.component';
+import { SellLaterComponent } from './sell-later/sell-later.component';
 
 
 
@@ -86,6 +87,7 @@ import { SellComponent } from './sell/sell.component';
 
     PortefeuilleComponent,
       SellComponent,
+      SellLaterComponent,
 
 
 

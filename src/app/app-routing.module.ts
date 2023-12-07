@@ -24,8 +24,7 @@ import { OrderbuyComponent } from './FrontOffice/orderbuy/orderbuy.component';
 import { TransactionhistoryComponent } from './FrontOffice/transactionhistory/transactionhistory.component';
 import {PortefeuilleComponent} from './portefeuille/Portefeuille.component';
 import {SellComponent} from "./sell/sell.component";
-
-
+import {SellLaterComponent} from "./sell-later/sell-later.component";
 
 const routes: Routes = [
   {
@@ -107,7 +106,14 @@ const routes: Routes = [
       ,{
 
         path:'sell',component:SellComponent, canActivate:[AuthGuard],  data:{roles:['User']}
+        ,
+        children:[
+          {
+            path: 'sell/:', component: SellLaterComponent, canActivate: [AuthGuard], data: {roles: ['User']}
+          }
+        ]
       }
+      ,
 
 
     ]

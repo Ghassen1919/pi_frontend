@@ -1,34 +1,28 @@
-
-<h2 style="margin-left: 570px;color: white;">Available Stocks</h2>
 <div class="table-responsive">
   <table class="table-bordered" id="Table" width="50%" cellspacing="0" style="margin-left: 350px;">
     <thead>
     <tr>
-      <th style="background-color: #131722; color: aliceblue;">User</th>
       <th style="background-color: #131722; color: aliceblue;">Instrument</th>
       <th style="background-color: #131722; color: aliceblue;">Quantity</th>
-      <th style="background-color: #131722; color: aliceblue;">Sell</th>
+      <th style="background-color: #131722; color: aliceblue;">Sell Quantity</th>
+      <th style="background-color: #131722; color: aliceblue;">Sell now</th>
+      <th style="background-color: #131722; color: aliceblue;">Sell later </th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let instrument of instruments">
-      <td>{{ instrument.user }}</td>
-      <td>{{ instrument.instrument }}</td>
-      <td>{{ instrument.quantity }}</td>
+      <td>{{ instrument.name }}</td>
+      <td>{{ instrument.quantite }}</td>
       <td>
-        <!-- Button triggers a modal or form for selling -->
-        <button (click)="openSellForm(instrument.symbol, instrument.quantity)">Sell</button>
-
-        <!-- Sell form/modal for each instrument -->
-        <div *ngIf="showSellForm[instrument.symbol]">
-          <h3>Sell Instrument</h3>
-          <form (ngSubmit)="sellInstrument(instrument.symbol)">
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" [(ngModel)]="sellQuantity[instrument.symbol]" required>
-            <button type="submit">Sell</button>
-          </form>
-        </div>
+        <input type="number" [(ngModel)]="sellQuantity[instrument.symbole]" min="0" max="{{ instrument.quantite }}" required>
       </td>
+      <td>
+        <button class="btn btn-primary" type="submit" (click)="sellInstrument(instrument.symbole)" style="background-color: #FFFFFF;color: #0b0b0b">Sell</button>
+      </td>
+<td>
+  <button class="btn btn-secondary" [routerLink]="['/sell', instrument.symbole]">Sell Later</button>
+
+</td>
     </tr>
     </tbody>
   </table>
